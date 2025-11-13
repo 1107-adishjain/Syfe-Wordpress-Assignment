@@ -1,0 +1,4 @@
+apiVersion: v2
+name: wordpress
+version: 0.1.0
+description: Scalable WordPress deployment

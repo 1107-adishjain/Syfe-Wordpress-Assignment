@@ -1,0 +1,25 @@
+FROM openresty/openresty:alpine
+
+# Install build dependencies
+RUN apk add --no-cache build-base pcre-dev openssl-dev zlib-dev linux-headers git iconv-dev postgresql-dev
+
+# Clone OpenResty source
+WORKDIR /tmp
+RUN git clone https://github.com/openresty/openresty.git && \
+    cd openresty && \
+    ./configure --prefix=/opt/openresty \
+        --with-pcre-jit \
+        --with-ipv6 \
+        --without-http_redis2_module \
+        --with-http_iconv_module \
+        --with-http_postgres_module \
+        -j8 && \
+    make && make install
+
+# Copy basic Lua script for Nginx
+COPY nginx-lua-script.lua /opt/openresty/nginx/conf/nginx-lua-script.lua
+
+# Expose port 80
+EXPOSE 80
+
+CMD ["/opt/openresty/bin/openresty", "-g", "daemon off;"]

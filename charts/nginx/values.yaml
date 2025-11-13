@@ -1,0 +1,15 @@
+replicaCount: 2
+image:
+  repository: nginx-custom
+  tag: latest
+service:
+  type: ClusterIP
+  port: 80
+resources: {}
+pvc:
+  name: wp-nfs-pvc
+
+exporter:
+  enabled: true
+  tag: latest
+  scrapePath: /stub_status

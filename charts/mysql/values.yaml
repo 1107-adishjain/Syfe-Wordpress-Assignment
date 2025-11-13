@@ -1,0 +1,20 @@
+replicaCount: 1
+image:
+  repository: mysql-custom
+  tag: latest
+service:
+  type: ClusterIP
+  port: 3306
+resources: {}
+pvc:
+  name: mysql-nfs-pvc
+mysqlRootPassword: "rootpassword"
+mysqlDatabase: "wordpress"
+mysqlUser: "wpuser"
+mysqlPassword: "wppassword"
+
+exporter:
+  enabled: true
+  tag: latest
+  user: "wpuser"
+  password: "wppassword"

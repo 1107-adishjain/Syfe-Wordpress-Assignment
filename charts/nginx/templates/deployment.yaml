@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: wp-data
+          mountPath: /var/www/html
+        - name: nginx-exporter
+          image: nginx/nginx-prometheus-exporter:{{ .Values.exporter.tag }}
+          args:
+          - -nginx.scrape-uri=http://localhost{{ .Values.exporter.scrapePath }}
+          ports:
+          - containerPort: 9113
+      volumes:
+      - name: wp-data
+        persistentVolumeClaim:
+          claimName: {{ .Values.pvc.name }}

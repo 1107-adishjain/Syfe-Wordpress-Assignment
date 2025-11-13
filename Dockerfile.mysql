@@ -1,0 +1,6 @@
+FROM mysql:latest
+
+# Example: Add custom configuration if needed
+# COPY my.cnf /etc/mysql/my.cnf
+
+EXPOSE 3306

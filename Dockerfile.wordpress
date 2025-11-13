@@ -1,0 +1,7 @@
+FROM wordpress:latest
+
+# Example: Add custom plugins/themes here if needed
+# COPY plugins /var/www/html/wp-content/plugins/
+# COPY themes /var/www/html/wp-content/themes/
+
+EXPOSE 80
