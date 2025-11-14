@@ -1,13 +1,13 @@
 replicaCount: 1
 image:
-  repository: mysql-custom
+  repository: mysql
   tag: latest
 service:
   type: ClusterIP
   port: 3306
 resources: {}
 pvc:
-  name: mysql-nfs-pvc
+  name: mysql-local-pvc
 mysqlRootPassword: "rootpassword"
 mysqlDatabase: "wordpress"
 mysqlUser: "wpuser"

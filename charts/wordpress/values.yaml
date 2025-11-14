@@ -1,13 +1,13 @@
 replicaCount: 2
 image:
-  repository: wordpress-custom
+  repository: wordpress
   tag: latest
 service:
   type: ClusterIP
   port: 80
 resources: {}
 pvc:
-  name: wp-nfs-pvc
+  name: wp-local-pvc
 mysqlDatabase: "wordpress"
 mysqlUser: "wpuser"
 mysqlPassword: "wppassword"

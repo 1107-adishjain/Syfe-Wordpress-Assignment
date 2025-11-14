@@ -51,4 +51,4 @@ spec:
       volumes:
       - name: mysql-data
         persistentVolumeClaim:
-          claimName: mysql-nfs-pvc
+          claimName: mysql-local-pvc

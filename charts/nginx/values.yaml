@@ -1,13 +1,13 @@
 replicaCount: 2
 image:
-  repository: nginx-custom
+  repository: adishjain1107/nginx-custom
   tag: latest
 service:
-  type: ClusterIP
+  type: NodePort
   port: 80
 resources: {}
 pvc:
-  name: wp-nfs-pvc
+  name: wp-local-pvc
 
 exporter:
   enabled: true
