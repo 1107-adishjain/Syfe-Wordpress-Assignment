@@ -1,9 +1,9 @@
 FROM alpine:latest
 
-# Install build dependencies (including perl for OpenResty build)
+# Install build dependencies
 RUN apk add --no-cache build-base pcre-dev openssl-dev zlib-dev linux-headers git postgresql-dev wget perl
 
-# Build and install iconv from source
+
 WORKDIR /tmp
 RUN wget https://ftp.gnu.org/pub/gnu/libiconv/libiconv-1.17.tar.gz && \
     tar -xzvf libiconv-1.17.tar.gz && \
