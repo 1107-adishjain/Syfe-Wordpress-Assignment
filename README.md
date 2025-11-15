@@ -167,9 +167,21 @@ Then access them at `http://<NodeIP>:<NodePort>`.
 - For stuck PV/PVC, delete and re-apply with `kubectl delete` and `kubectl apply`.
 
 ## Images
-Prometheus & Grafana dashboards: (add screenshots here)
+Prometheus & Grafana dashboards:
+
+### Prometheus Dashboard
+![Prometheus Dashboard](images/prometheus.png)
+
+### Grafana Dashboard
+![Grafana Dashboard](images/grafana.png)
+
+### WordPress Home Page
+![WordPress](images/wordpress.png)
+
 
 > Note: My Prometheus data sources and metrics status were up, but there was an issue with data not showing up in Grafana. I tried to fix it but was unable to resolve the problem during this assignment.
+## Problem:
+![Note](images/nodata.png)
 
 ## Final Notes
 
